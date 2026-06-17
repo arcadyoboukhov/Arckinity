@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arkinity Launcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="renderer.css">
+</head>
+<body>
+  <div class="bg-glow bg-glow-a"></div>
+  <div class="bg-glow bg-glow-b"></div>
+  <main class="shell">
+    <header class="hero">
+      <p class="eyebrow">DESKTOP CONTROL PANEL</p>
+      <h1>Arkinity Launcher</h1>
+      <p class="sub">Choose a video library, set your port, and control the server from one place.</p>
+    </header>
+
+    <section class="panel control-panel">
+      <div class="row">
+        <label for="video-folder">Video Folder</label>
+        <div class="field-group">
+          <input id="video-folder" type="text" placeholder="Select a folder..." readonly>
+          <button id="browse-folder" class="btn btn-secondary">Browse</button>
+        </div>
+      </div>
+
+      <div class="row two-col">
+        <div>
+          <label for="port">Port</label>
+          <input id="port" type="number" min="1" max="65535" value="3000">
+        </div>
+        <div>
+          <label>Server Status</label>
+          <div id="status-pill" class="status-pill stopped">Stopped</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="start-btn" class="btn btn-primary">Start Server</button>
+        <button id="stop-btn" class="btn btn-danger" disabled>Stop Server</button>
+        <button id="open-app-btn" class="btn btn-ghost" disabled>Open App</button>
+      </div>
+
+      <p id="message" class="message" aria-live="polite"></p>
+    </section>
+
+    <section class="panel log-panel">
+      <div class="log-head">
+        <h2>Live Server Logs</h2>
+        <button id="clear-logs" class="btn btn-minor">Clear</button>
+      </div>
+      <pre id="logs" class="logs" aria-live="polite"></pre>
+    </section>
+  </main>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

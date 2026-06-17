@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.arkinity.launcher</id>
+  <name>Arkinity</name>
+  <summary>Cross-platform desktop video feed launcher</summary>
+  <metadata_license>MIT</metadata_license>
+  <project_license>Proprietary</project_license>
+  <description>
+    <p>Arkinity is a desktop video feed app with recommendation features and local library support.</p>
+  </description>
+  <launchable type="desktop-id">com.arkinity.launcher.desktop</launchable>
+  <provides>
+    <binary>run-arkinity.sh</binary>
+  </provides>
+</component>

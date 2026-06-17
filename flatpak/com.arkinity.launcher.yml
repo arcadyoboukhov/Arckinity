@@ -1,0 +1,36 @@
+app-id: com.arkinity.launcher
+runtime: org.freedesktop.Platform
+runtime-version: "24.08"
+sdk: org.freedesktop.Sdk
+base: org.electronjs.Electron2.BaseApp
+base-version: "24.08"
+command: run-arkinity.sh
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --device=dri
+  - --share=network
+  - --filesystem=home
+  - --filesystem=xdg-videos
+modules:
+  - name: arkinity
+    buildsystem: simple
+    build-commands:
+      - install -d /app/arkinity
+      - cp -a . /app/arkinity
+      - install -Dm755 /run/build/arkinity/run-arkinity.sh /app/bin/run-arkinity.sh
+      - install -Dm644 /run/build/arkinity/com.arkinity.launcher.desktop /app/share/applications/com.arkinity.launcher.desktop
+      - install -Dm644 /run/build/arkinity/com.arkinity.launcher.metainfo.xml /app/share/metainfo/com.arkinity.launcher.metainfo.xml
+      - install -Dm644 /run/build/arkinity/com.arkinity.launcher.svg /app/share/icons/hicolor/scalable/apps/com.arkinity.launcher.svg
+    sources:
+      - type: dir
+        path: dist/linux-unpacked
+      - type: file
+        path: flatpak/run-arkinity.sh
+      - type: file
+        path: flatpak/com.arkinity.launcher.desktop
+      - type: file
+        path: flatpak/com.arkinity.launcher.metainfo.xml
+      - type: file
+        path: flatpak/com.arkinity.launcher.svg

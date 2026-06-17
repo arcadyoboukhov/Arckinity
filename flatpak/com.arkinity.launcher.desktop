@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Arkinity
+Comment=Desktop video feed launcher
+Exec=run-arkinity.sh %U
+Icon=com.arkinity.launcher
+Terminal=false
+Categories=AudioVideo;Video;
+StartupNotify=true
